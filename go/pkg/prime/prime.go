@@ -1,3 +1,4 @@
+// Package prime is the package implementing the sieve
 package prime
 
 import (
@@ -5,7 +6,8 @@ import (
 	"math"
 )
 
-func PrimeSieve(limit int) ([]int, error) {
+// Sieve uses the sieve of eratosthenes algorithm to find any primes below or exactly on the limit.
+func Sieve(limit int) ([]int, error) {
 	if limit < 0 {
 		return nil, fmt.Errorf("The prime limit must be greater than 0, given: %d", limit)
 	}

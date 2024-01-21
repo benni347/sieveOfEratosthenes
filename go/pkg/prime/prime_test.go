@@ -15,7 +15,7 @@ func slicesEqual(a, b []int) bool {
 }
 
 func TestPrimes1(t *testing.T) {
-	got, err := PrimeSieve(1)
+	got, err := Sieve(1)
 	if err != nil {
 		t.Errorf("Got an error even though none should be thrown, err = %e", err)
 	}
@@ -26,7 +26,7 @@ func TestPrimes1(t *testing.T) {
 }
 
 func TestPrimesSmallLimit(t *testing.T) {
-	got, err := PrimeSieve(10)
+	got, err := Sieve(10)
 	if err != nil {
 		t.Errorf("Error thrown for valid input, err = %e", err)
 	}
@@ -38,7 +38,7 @@ func TestPrimesSmallLimit(t *testing.T) {
 }
 
 func TestPrimesLargeLimit(t *testing.T) {
-	got, err := PrimeSieve(30)
+	got, err := Sieve(30)
 	if err != nil {
 		t.Errorf("Error thrown for valid input, err = %e", err)
 	}
@@ -50,14 +50,14 @@ func TestPrimesLargeLimit(t *testing.T) {
 }
 
 func TestPrimesNegativeInput(t *testing.T) {
-	_, err := PrimeSieve(-5)
+	_, err := Sieve(-5)
 	if err == nil {
 		t.Errorf("Expected an error for negative input, but got none")
 	}
 }
 
 func TestPrimesZero(t *testing.T) {
-	got, err := PrimeSieve(0)
+	got, err := Sieve(0)
 	if err != nil {
 		t.Errorf("Error thrown for valid input, err = %e", err)
 	}
@@ -68,7 +68,7 @@ func TestPrimesZero(t *testing.T) {
 }
 
 func TestPrimesTwo(t *testing.T) {
-	got, err := PrimeSieve(2)
+	got, err := Sieve(2)
 	if err != nil {
 		t.Errorf("Error thrown for valid input, err = %e", err)
 	}
