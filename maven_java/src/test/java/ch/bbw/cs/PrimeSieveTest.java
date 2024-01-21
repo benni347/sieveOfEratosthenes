@@ -3,10 +3,11 @@ package ch.bbw.cs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import junit.framework.TestCase;
-import org.junit.Test;
 
-public class PrimeSieveTest extends TestCase {
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class PrimeSieveTest {
 
   @Test
   public void testPrimeSieve1() {
@@ -14,7 +15,7 @@ public class PrimeSieveTest extends TestCase {
     int limit = 1;
     List<Integer> primes = PrimeSieve.findPrimes(limit);
 
-    assertTrue(primes.isEmpty());
+    Assertions.assertTrue(primes.isEmpty());
   }
 
   @Test
@@ -25,8 +26,8 @@ public class PrimeSieveTest extends TestCase {
     List<Integer> validPrimes = new ArrayList<>();
     validPrimes.add(2);
 
-    assertFalse(primes.isEmpty());
-    assertEquals(primes, validPrimes);
+    Assertions.assertFalse(primes.isEmpty());
+    Assertions.assertEquals(primes, validPrimes);
   }
 
   @Test
@@ -35,7 +36,7 @@ public class PrimeSieveTest extends TestCase {
     int limit = 0;
     List<Integer> primes = PrimeSieve.findPrimes(limit);
 
-    assertTrue(primes.isEmpty());
+    Assertions.assertTrue(primes.isEmpty());
   }
 
   @Test
@@ -44,7 +45,7 @@ public class PrimeSieveTest extends TestCase {
     int limit = -5;
     List<Integer> primes = PrimeSieve.findPrimes(limit);
 
-    assertTrue(primes.isEmpty());
+    Assertions.assertTrue(primes.isEmpty());
   }
 
   @Test
@@ -57,8 +58,8 @@ public class PrimeSieveTest extends TestCase {
     List<Integer> knownPrimes = Arrays.asList(
         2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83,
         89, 97);
-    assertTrue(primes.containsAll(knownPrimes));
-    assertEquals(knownPrimes.size(), primes.size());
+    Assertions.assertTrue(primes.containsAll(knownPrimes));
+    Assertions.assertEquals(knownPrimes.size(), primes.size());
   }
 
   @Test
@@ -68,7 +69,7 @@ public class PrimeSieveTest extends TestCase {
     List<Integer> primes = PrimeSieve.findPrimes(limit);
     List<Integer> validPrimes = Arrays.asList(2, 3, 5, 7);
 
-    assertEquals(validPrimes, primes);
+    Assertions.assertEquals(validPrimes, primes);
   }
 
   @Test
@@ -79,6 +80,6 @@ public class PrimeSieveTest extends TestCase {
     int higherLimit = 28;
     List<Integer> primesInHigherRange = PrimeSieve.findPrimes(higherLimit);
 
-    assertEquals(primes, primesInHigherRange);
+    Assertions.assertEquals(primes, primesInHigherRange);
   }
 }
